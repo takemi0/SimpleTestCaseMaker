@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author skyki
+ *
+ */
+module SimpleTestCase {
+}
