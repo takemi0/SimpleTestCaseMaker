@@ -5,5 +5,4 @@
  * @author Takemi
  *
  */
-module SimpleTestCase {
-}
+package SimpleTestCase.libs;
