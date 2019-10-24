@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author Takemi
- *
- */
-module SimpleTestCase {
-}
