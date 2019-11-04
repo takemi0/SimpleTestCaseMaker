@@ -22,4 +22,9 @@ public class Project {
 	 * ログイン処理ケースのシート名
 	 */
 	public String login_sheet;
+	
+	/**
+	 * Jsonのファイルパス
+	 */
+	public String json_file;
 }

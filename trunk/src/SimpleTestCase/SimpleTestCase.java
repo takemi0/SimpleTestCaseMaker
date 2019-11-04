@@ -4,11 +4,15 @@
 package SimpleTestCase;
 
 import SimpleTestCase.TestCase.Project;
+import SimpleTestCase.libs.FormJson.Form;
+import SimpleTestCase.libs.Utils;
+import com.google.gson.Gson;
 
 /**
  * @author Takemi
  *
  */
+@SuppressWarnings("unused")
 public class SimpleTestCase {
 
 	/**
@@ -16,9 +20,23 @@ public class SimpleTestCase {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		System.out.println( "SimpleTestCase Begin" );
+		
 		Project project = new Project();
 		ArgsProc( project, args );
 
+		if( project.json_file.length() == 0 ) {
+			System.out.println("Jsonファイルのパスを指定してください。");
+			return;
+		}
+		String json = Utils.GetStringFile( project.json_file );
+		Gson gson = new Gson();
+		Form from = null;
+		try {
+			from = gson.fromJson( json, Form.class);
+		}catch(Exception e){
+			System.out.println( e.getMessage() );
+		}	
 	}
 	
 	/**
@@ -39,6 +57,11 @@ public class SimpleTestCase {
 					
 				case "base_url":
 					project.base_url = args[n+1];
+					n++;
+					break;
+					
+				case "json":
+					project.json_file = args[n+1];
 					n++;
 					break;
 			}

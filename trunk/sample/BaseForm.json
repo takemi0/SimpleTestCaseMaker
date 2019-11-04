@@ -1,0 +1,18 @@
+{
+	"head" : {
+		"type": "form",
+		"version": "1.0.1"
+	},
+	"Component": [
+		{ "name": "_token", "type" : "IcToken", "validate" : [ "required" ], "sql": "none" },
+		{ "name": "id",		"type" : "IcLabel", "sql": "integer", "disp_mode": "modify,detail,delete", "class" : "form-control col-md-7 col-xs-12", "required" : "required", "autocomplete" : "off", "min" : 0 },
+		{ "name": "name",	"type" : "IcTextbox", "validate" : [ "required" ], "sql": "string", "class" : "form-control col-md-7 col-xs-12", "required" : "required", "autocomplete" : "off", "placeholder" : "拠点名を入力下さい" },
+		{ "name": "place",	"type" : "IcTextbox", "validate" : [ "required" ], "sql": "string", "class" : "form-control col-md-7 col-xs-12", "required" : "required", "autocomplete" : "off", "placeholder" : "拠点の住所を入力下さい" },
+		{ "name": "active", "type" : "IcBootRadio", "validate" : ["required","integer"], "sql": "integer", "items": "__('define.active')", "default" : 1 },
+		{ "name": "begin_at", "type" : "IcVueDate", "validate" : ["nullable","date"], "sql": "date", "button-calendar" : "true", "button-calendar-icon" :"/img/icon_calender_tym.png" },
+		{ "name": "end_at", "type" : "IcVueDate", "validate" : ["nullable","date"], "sql": "date", "button-calendar" : "true", "button-calendar-icon" :"/img/icon_calender_tym.png" },
+		{ "name": "updated_at",	  "type" : "IcLabel", "disp_mode": "modify,detail,delete" },
+		{ "name": "created_at",	  "type" : "IcLabel", "disp_mode": "modify,detail,delete" },
+		{ "name": "deleted_at",	  "type" : "IcLabel", "disp_mode": "modify,detail,delete" }
+	]
+}
