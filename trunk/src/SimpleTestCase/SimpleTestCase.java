@@ -6,6 +6,7 @@ package SimpleTestCase;
 import SimpleTestCase.TestCase.Project;
 import SimpleTestCase.libs.FormJson.Form;
 import SimpleTestCase.libs.Utils;
+import SimpleTestCase.lib.SimpleExcel.Book;
 import com.google.gson.Gson;
 
 /**
@@ -30,13 +31,18 @@ public class SimpleTestCase {
 			return;
 		}
 		String json = Utils.GetStringFile( project.json_file );
+		
 		Gson gson = new Gson();
 		Form from = null;
+		
 		try {
 			from = gson.fromJson( json, Form.class);
-		}catch(Exception e){
+		} catch( Exception e) {
 			System.out.println( e.getMessage() );
-		}	
+		}
+		
+		Book book = new Book();
+		book.load( project.test_template_file );
 	}
 	
 	/**

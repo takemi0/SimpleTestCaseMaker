@@ -9,7 +9,7 @@ package SimpleTestCase.TestCase;
  */
 public class Project {
 	/**
-	 * テストのテンプレートファイルパス
+	 * テストのテンプレートエクセルファイルパス
 	 */
 	public String test_template_file;
 	
