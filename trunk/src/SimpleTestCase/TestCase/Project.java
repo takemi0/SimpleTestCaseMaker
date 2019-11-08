@@ -27,4 +27,9 @@ public class Project {
 	 * Jsonのファイルパス
 	 */
 	public String json_file;
+	
+	/**
+	 * 出力するテストシナリオファイル名
+	 */
+	public String make_file;
 }

@@ -4,6 +4,7 @@
 package SimpleTestCase.lib.SimpleExcel;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
@@ -61,4 +62,20 @@ public class Book {
 		return true;
 	}
 
+	/**
+	 * エクセルの保存
+	 * @param path
+	 * @return
+	 */
+	public boolean save( String path ) {
+		try {
+			FileOutputStream out = new FileOutputStream( path );
+			_book.write(out);
+		}catch( Exception e ) {
+			e.printStackTrace();
+			return false;
+		}
+		
+		return true;
+	}
 }

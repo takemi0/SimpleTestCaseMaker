@@ -23,9 +23,13 @@ public class SimpleTestCase {
 	public static void main(String[] args) {
 		System.out.println( "SimpleTestCase Begin" );
 		
+		//プロジェククラス生成
 		Project project = new Project();
+		
+		//引数処理、プロジェクトクラスへの設定
 		ArgsProc( project, args );
 
+		//フォーム情報読込
 		if( project.json_file.length() == 0 ) {
 			System.out.println("Jsonファイルのパスを指定してください。");
 			return;
@@ -41,8 +45,17 @@ public class SimpleTestCase {
 			System.out.println( e.getMessage() );
 		}
 		
+		//テストテンプレート読込
 		Book book = new Book();
 		book.load( project.test_template_file );
+		
+		
+		//テストシナリオの構築
+			//バリデーション処理ごとにグルーピングしてテストシナリオを構築
+		
+		
+		//テストシナリオの保存
+		book.save( project.make_file );
 	}
 	
 	/**
@@ -69,6 +82,14 @@ public class SimpleTestCase {
 				case "json":
 					project.json_file = args[n+1];
 					n++;
+					break;
+					
+				case "output":
+					project.make_file = args[n+1];
+					break;
+					
+				case "proejct":
+					//プロジェクト設定記入のJSONを読込projectへ反映
 					break;
 			}
 		}
