@@ -7,6 +7,8 @@ import SimpleTestCase.TestCase.Project;
 import SimpleTestCase.libs.FormJson.Form;
 import SimpleTestCase.libs.Utils;
 import SimpleTestCase.lib.SimpleExcel.Book;
+import SimpleTestCase.lib.SimpleExcel.ValidateScenarioIndex;
+
 import com.google.gson.Gson;
 
 /**
@@ -23,10 +25,9 @@ public class SimpleTestCase {
 	public static void main(String[] args) {
 		System.out.println( "SimpleTestCase Begin" );
 		
-		//プロジェククラス生成
+		//設定の生成
 		Project project = new Project();
 		
-		//引数処理、プロジェクトクラスへの設定
 		ArgsProc( project, args );
 
 		//フォーム情報読込
@@ -49,13 +50,20 @@ public class SimpleTestCase {
 		Book book = new Book();
 		book.load( project.test_template_file );
 		
-		
-		//テストシナリオの構築
-			//バリデーション処理ごとにグルーピングしてテストシナリオを構築
-		
+		//テストケースの作成	
+		{
+			//バリデーション処理のテンプレートシナリオのインデックスを作成
+			ValidateScenarioIndex index = new ValidateScenarioIndex();	
+			index.MakeListSheet( book.GetValidateSheet() );
+			
+			//バリデーション毎に対応する入力項目をグルーピング
+			
+			
+			//バリデーション毎にシナリオを生成
+		}
 		
 		//テストシナリオの保存
-		book.save( project.make_file );
+		book.save(  project.make_file );
 	}
 	
 	/**

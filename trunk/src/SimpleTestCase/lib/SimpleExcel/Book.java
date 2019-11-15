@@ -57,8 +57,7 @@ public class Book {
 			e.printStackTrace();
 			return false;
 		}
-
-		
+	
 		return true;
 	}
 
@@ -77,5 +76,9 @@ public class Book {
 		}
 		
 		return true;
+	}
+	
+	public Sheet GetValidateSheet() {
+		return validate_template;
 	}
 }
